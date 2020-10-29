@@ -2,11 +2,19 @@
 	"manifest_version": 2,
 	"name": "Find the Pumpkin",
   "version": "1.0",
-	"description": "Find the pumpkin on all sites!",
+  "description": "Find the pumpkin on all sites!",
 	"content_scripts": [
 		{
 			"matches": ["https://www.hackreactor.com/*"],
 			"js": ["jquery.min.js", "./main.js"]
     }
-  ]
+  ],
+  "page_action": {
+    "default_icon": {
+      "16": "images/codepumpkin.png"
+    }
+  },
+  "icons": {
+    "16": "images/codepumpkin.png"
+  }
 }
