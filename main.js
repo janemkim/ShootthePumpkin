@@ -67,6 +67,9 @@ logo[0].setAttribute('src', 'https://res.cloudinary.com/dbo7cxsfs/image/upload/v
 const goodbyeIframe = document.querySelectorAll('iframe')
 goodbyeIframe[0].parentNode.removeChild(goodbyeIframe[0])
 
+const copyright = document.getElementsByClassName('styles-module--footerNavbar--3hGhP');
+copyright[0].innerHTML = '&#169 2020 Jjane and Jbri. All Rights Reserved'
+
 class Pumpkin {
   constructor(el) {
       this.node = document.createElement('img');
@@ -128,7 +131,14 @@ counterbox.style.height = "100px";
 counterbox.style.position = "relative";
 counterbox.style["z-index"] = "1000";
 counterbox.style.backgroundColor = "orange";
-counterbox.innerHTML = `<p>Score: ${pumpkin.node.counter}</p>`; 
+counterbox.style["border-radius"] = "25px";
+
+const score = document.createElement('p');
+score.setAttribute("id", "score");
+score.innerHTML = `<b>Shoot the Pumpkin!</br></br>Score: ${pumpkin.node.counter}</b>`; 
+counterbox.prepend(score);
+score.style["text-align"] = "center";
+// counterbox.querySelector('p').style["text-align"] = center; 
 
 //IDEA: Take hack reactor sign up link and break it so an alert pops up and says, You don't want to do that...
 
@@ -137,24 +147,30 @@ signUpButton.addEventListener('click', (e) => {
     alert('You really don\'t want to do that, so we aren\'t going to let you!')
 });
 
-
+//we access our clicked pumpkin using the ID
 const clickedPumpkin = document.getElementById('pumpkin')
+//when we click on the pumpkin, we add an event listener
 clickedPumpkin.addEventListener('click', (e) => {
+  //style our exploding pumpkin
 	explodingPumpkin.style.position = "relative";
 		explodingPumpkin.style.width = "700px";
 		explodingPumpkin.style.height = "700px";
 		explodingPumpkin.style.left = pumpkin.node.style.left;
     explodingPumpkin.style.top = 100;
+    //move our pumpkin to a new random place on the screen
     pumpkin.node.style.left = `${Math.floor(Math.random() * Math.floor(10)) * 100}px`;
     pumpkin.node.style.top = `${Math.floor(Math.random() * Math.floor(5)) * 100}px`;
+    //add our exploding pumpkin to the DOM
     gamebox.append(explodingPumpkin);
+    //wait a second and then get rid of our exploding pumpkin
     setTimeout(function() {
        explodingPumpkin.remove() 
     }, 1000);
-		
+    
+    //increment our counter when we click on our pumpkin because we scored a point!
 		let counter = pumpkin.node.counter;
 		pumpkin.node.counter = counter + 1;
-		counterbox.innerHTML = `<p>Score: ${pumpkin.node.counter}</p>`; 
+		score.innerHTML = `<b>Shoot the Pumpkin!</br></br>Score: ${pumpkin.node.counter}</b>`; 
     
 });
 
