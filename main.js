@@ -27,8 +27,8 @@
 
 const background = document.body;
 const navBar = document.getElementById("navbar");
-background.parentNode.style.backgroundColor = 'black';
-navBar.style.backgroundColor = 'black';
+background.parentNode.style.backgroundImage = "url('https://res.cloudinary.com/dbo7cxsfs/image/upload/v1603949252/Optimized-Optimized-Background_1_y72ofx.jpg')";
+navBar.style.backgroundImage = "url('https://res.cloudinary.com/dbo7cxsfs/image/upload/v1603949252/Optimized-Optimized-Background_1_y72ofx.jpg')";
 
 const heading = document.querySelector("h1");
 heading.innerHTML = "The Least Advanced Coding Bootcamp: Go to Codesmith Instead";
@@ -127,7 +127,7 @@ signUpButton.addEventListener('click', (e) => {
 const clickedPumpkin = document.getElementById('pumpkin')
 clickedPumpkin.addEventListener('click', (e) => {
     explodingPumpkin.style.left = pumpkin.node.style.left;
-    explodingPumpkin.style.top = pumpkin.node.style.top;
+    explodingPumpkin.style.top = 100;
     pumpkin.node.style.left = `${Math.floor(Math.random() * Math.floor(11)) * 100}px`;
     pumpkin.node.style.top = `${Math.floor(Math.random() * Math.floor(5)) * 100 + 100}px`;
     gamebox.append(explodingPumpkin);
