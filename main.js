@@ -75,8 +75,8 @@ class Pumpkin {
     
       el.appendChild(this.node);
     
-      this.node.style.left = `${Math.floor(Math.random() * Math.floor(11)) * 100}px`;
-      this.node.style.top = `${Math.floor(Math.random() * Math.floor(5)) * 100 + 100}px`;
+      this.node.style.left = `${Math.floor(Math.random() * Math.floor(10)) * 100}px`;
+      this.node.style.top = `${Math.floor(Math.random() * Math.floor(5)) * 100}px`;
 
       this.node.style.width = "100px";
       this.node.style.height = "100px";
@@ -86,7 +86,20 @@ class Pumpkin {
       this.node.style.position = "relative";
 
 			this.node.counter = 0;
-  }
+
+			// this.SPEED = 500;
+			// this.timeoutID = setTimeout(this.move.bind(this), this.SPEED);
+			// setTimeout(callback function, time in milliseconds)
+			// after 250 ms, move function executes on head
+	}
+
+	// Tried to move the pumpkin every 500 miliseconds
+  // move() {
+  //   pumpkin.node.style.left = `${Math.floor(Math.random() * Math.floor(10)) * 100}px`;
+  //   pumpkin.node.style.top = `${Math.floor(Math.random() * Math.floor(5)) * 100}px`;
+
+  //   this.timeoutID = setTimeout(this.move.bind(this), this.SPEED);
+  // }
 }
 
 const explodingPumpkin = document.createElement('img');
@@ -124,17 +137,25 @@ signUpButton.addEventListener('click', (e) => {
     alert('You really don\'t want to do that, so we aren\'t going to let you!')
 });
 
+
 const clickedPumpkin = document.getElementById('pumpkin')
 clickedPumpkin.addEventListener('click', (e) => {
-    explodingPumpkin.style.left = pumpkin.node.style.left;
+	explodingPumpkin.style.position = "relative";
+		explodingPumpkin.style.width = "700px";
+		explodingPumpkin.style.height = "700px";
+		explodingPumpkin.style.left = pumpkin.node.style.left;
     explodingPumpkin.style.top = 100;
-    pumpkin.node.style.left = `${Math.floor(Math.random() * Math.floor(11)) * 100}px`;
-    pumpkin.node.style.top = `${Math.floor(Math.random() * Math.floor(5)) * 100 + 100}px`;
+    pumpkin.node.style.left = `${Math.floor(Math.random() * Math.floor(10)) * 100}px`;
+    pumpkin.node.style.top = `${Math.floor(Math.random() * Math.floor(5)) * 100}px`;
     gamebox.append(explodingPumpkin);
     setTimeout(function() {
        explodingPumpkin.remove() 
     }, 1000);
-    
-		pumpkin.node.counter = pumpkin.node.counter + 1;
+		
+		let counter = pumpkin.node.counter;
+		pumpkin.node.counter = counter + 1;
+		counterbox.innerHTML = `<p>Score: ${pumpkin.node.counter}</p>`; 
     
 });
+
+
