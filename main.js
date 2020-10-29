@@ -76,7 +76,7 @@ class Pumpkin {
       el.appendChild(this.node);
     
       this.node.style.left = `${Math.floor(Math.random() * Math.floor(11)) * 100}px`;
-      this.node.style.top = `${Math.floor(Math.random() * Math.floor(11)) * 100 + 100}px`;
+      this.node.style.top = `${Math.floor(Math.random() * Math.floor(5)) * 100 + 100}px`;
 
       this.node.style.width = "100px";
       this.node.style.height = "100px";
@@ -129,7 +129,7 @@ clickedPumpkin.addEventListener('click', (e) => {
     explodingPumpkin.style.left = pumpkin.node.style.left;
     explodingPumpkin.style.top = pumpkin.node.style.top;
     pumpkin.node.style.left = `${Math.floor(Math.random() * Math.floor(11)) * 100}px`;
-    pumpkin.node.style.top = `${Math.floor(Math.random() * Math.floor(11)) * 100 + 100}px`;
+    pumpkin.node.style.top = `${Math.floor(Math.random() * Math.floor(5)) * 100 + 100}px`;
     gamebox.append(explodingPumpkin);
     setTimeout(function() {
        explodingPumpkin.remove() 
